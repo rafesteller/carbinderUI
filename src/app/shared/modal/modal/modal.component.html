@@ -1,0 +1,16 @@
+<div>
+    <div *ngIf="visible">
+        <div class="overlay-custom">
+            <div class="modal-custom">
+                <div class="modal-body-custom">
+                    <button (click)="close();">close</button>
+                    <ng-content></ng-content>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!visible">
+        <button (click)="open();">{{id}}</button>
+    </div>
+</div>
+

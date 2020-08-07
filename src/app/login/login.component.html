@@ -1,0 +1,21 @@
+<body>
+    <form>
+        <h2>Login</h2>
+        <div>
+            <div>
+                <label>username:
+                    <input [(ngModel)]="user.name" placeholder="username" name="username"/>
+                </label>
+            </div>
+
+            <div>
+                <label>password:
+                    <input [(ngModel)]="user.password" type=password name="password" />
+                </label>
+            </div>
+        </div>
+        <div>
+            <button (click)="login()">login</button>
+        </div>
+    </form>
+</body>

@@ -1,0 +1,15 @@
+<h2>My Cars</h2>
+<div name="service" class="block">
+    <button (click)="showService = !showService" class="dropdown">{{showService ? 'Upcoming Service' : 'Upcoming Service'}}</button>
+    <div *ngIf="showService">
+        <ul>
+            <li>service 1</li>
+            <li>service 2</li>
+        </ul>
+    </div>
+</div>
+
+
+<div name="cars" class="block">
+    <app-car-list></app-car-list>
+</div>

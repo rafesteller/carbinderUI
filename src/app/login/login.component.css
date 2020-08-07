@@ -1,0 +1,39 @@
+body{
+    background-image: url('/assets/images/stuffed-binder.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: honeydew;
+    border:30px black;
+    border-radius: 30px;
+    max-width: max-content;
+    max-height: max-content;
+}
+
+div {
+    padding: 2%;
+    text-align: center;
+    display: block;
+}
+
+button{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: flex;
+}
+
+h2 {
+    padding: 2%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}

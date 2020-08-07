@@ -1,0 +1,32 @@
+<form [formGroup]="carForm" (ngSubmit)=addCar()>
+    <label>
+      Year:
+      <select formControlName="year" #box (change)="yearKey(box.value)">
+        <option *ngFor="let year of years" [ngValue]="year">{{year}}</option>
+      </select>
+    </label>
+
+    <label>
+      Brand:
+      <select formControlName="brand" #box (change)="brandKey(box.value)">
+        <option *ngFor="let brand of brands" [ngValue]="brand">{{brand}}</option>
+      </select>
+    </label>
+
+    <label>
+      Model:
+      <select formControlName="model" #box (change)="modelKey(box.value)">
+        <option *ngFor="let model of models" [ngValue]="model">{{model}}</option>
+      </select>
+    </label>
+
+    <label>
+      Transmission:
+      <select formControlName="transmission">
+        <option *ngFor="let model of transmissions" [ngValue]="model">{{model.transmission}}</option>
+      </select>
+    </label>
+
+
+    <button type="submit" [disabled]="!carForm.valid">Submit</button>
+  </form>

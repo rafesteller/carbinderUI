@@ -1,0 +1,6 @@
+<div>
+    <h1 *ngIf="!loggedIn">{{title}}</h1>
+    <button [routerLink]="['']" *ngIf="loggedIn" class="text">{{title}}</button >
+    <button (click)="logOut()" *ngIf="loggedIn">logout</button>
+</div>
+<router-outlet></router-outlet>

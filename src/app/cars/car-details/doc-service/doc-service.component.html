@@ -1,0 +1,63 @@
+
+<div class="container">
+    <h3>Document Service</h3>
+    <form (ngSubmit)="onSubmit(serviceForm)" #serviceForm="ngForm" serviceForm>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required  minlength="3"          
+        [(ngModel)]="service.name" name="name" #name="ngModel">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+                Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+                Name must be atleast 3 characters long. 
+            </div>
+
+       </div>
+    </div>
+
+    <div class="form-group">
+        <label for="completed">Date Completed</label>
+        <input type="date" class="form-control" id="completed"  
+        pastdate
+            [(ngModel)]="service.completed" name="completed" #completed="ngModel">
+        <div *ngIf="completed.invalid && (completed.dirty || completed.touched)" class="alert alert-danger">
+            <div *ngIf="completed.errors.required">
+                Date completed is required.
+            </div>
+            <div *ngIf="completed.errors.pastdate">
+                Date completed must be in the past.
+            </div>
+       </div>
+    </div>
+
+    <div class="form-group">
+        <label for="cost">Cost</label>
+        <input type="text" class="form-control" id="cost" required 
+            [(ngModel)]="service.cost" name="cost" #cost="ngModel">
+        <div [hidden]="cost.valid || cost.pristine" class="alert alert-danger">
+            Cost is required
+       </div>
+    </div>
+
+    <div class="form-group">
+        <label for="details">Details</label>
+        <input type="text" class="form-control" id="details"
+            [(ngModel)]="service.details" name="details" #name="ngModel">
+       
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!serviceForm.form.valid">Document</button>
+
+    </form>
+</div>
+
+<!--TODO
+schedule service, same as this but no cost
+service db table  id, car, name,completed,scheduled,cost,details
+service apis
+complete service schedule
+add complete button to table
+
+-->

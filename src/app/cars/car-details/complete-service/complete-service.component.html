@@ -1,0 +1,49 @@
+
+<div class="container">
+    <h3>Completed Service</h3>
+    <form (ngSubmit)="onSubmit(serviceForm)" #serviceForm="ngForm" serviceForm>
+    <div class="form-group">
+        <label for="name">Name: </label> {{service.name}}
+    </div>
+
+    <div class="form-group">
+        <label for="scheduled">Date Scheduled: </label> {{service.scheduled | date}}
+    </div>
+
+    <div class="form-group">
+        <label for="completed">Date Completed</label>
+        <input type="date" class="form-control" id="completed"  
+        pastdate
+            [(ngModel)]="service.completed" name="completed" #completed="ngModel">
+        <div *ngIf="completed.invalid && (completed.dirty || completed.touched)" class="alert alert-danger">
+            <div *ngIf="completed.errors.required">
+                Date completed is required.
+            </div>
+            <div *ngIf="completed.errors.pastdate">
+                Date completed must be in the past.
+            </div>
+       </div>
+    </div>
+
+    <div class="form-group">
+        <label for="cost">Cost</label>
+        <input type="text" class="form-control" id="cost" required 
+            [(ngModel)]="service.cost" name="cost" #cost="ngModel">
+        <div [hidden]="cost.valid || cost.pristine" class="alert alert-danger">
+            Cost is required
+       </div>
+    </div>
+
+    <div class="form-group">
+        <label for="details">Details</label>
+        <input type="text" class="form-control" id="details"
+            [(ngModel)]="service.details" name="details" #name="ngModel">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-success" [disabled]="!serviceForm.form.valid">Schedule</button>
+
+    </form>
+</div>
+
