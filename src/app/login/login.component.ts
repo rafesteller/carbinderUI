@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
     console.log("login")
     console.log(this.user)
     this.authService.login(this.user.name, this.user.password).subscribe(token => {
-      console.log( 'return to '+ this.retUrl);
-      console.log(token)
+      console.log("in return from api call")
+      console.log("the token is ", token)
       AuthService.setToken(JSON.stringify(token));
       AuthService.startTokenTimer();
       if (this.retUrl!=null) {
@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
            this.router.navigate( ['dashboard']);
       }
   });
+    console.log("auth done")
   }
 
 

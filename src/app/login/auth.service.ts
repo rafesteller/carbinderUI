@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse, HttpHeaders, HttpXhrBackend } from '@angular/common/http';
 import * as jwt_decode from 'jwt-decode';
 import { of, timer, Observable } from 'rxjs';
+import {environment} from '../../environments/environment'
 
 
 
@@ -65,8 +66,8 @@ export class AuthService {
         return false;
     }
 
-    private static url: string = 'http://127.0.0.1:8000/api/v1/auth/';
-    private url: string = 'http://127.0.0.1:8000/api/v1/auth/'
+    private static url: string = environment.api_url + 'api/v1/auth/';
+    private url: string = environment.api_url + 'api/v1/auth/'
     //const headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json'});
 
     constructor(private http: HttpClient) {}
@@ -103,11 +104,13 @@ export class AuthService {
 
 
     login(username: string, password: string) {
-       
-
+        console.log("url is ", this.url + 'signin')
         return this.http.post(this.url + 'signin', {'name': username, 'password': password})
        
 
     }
 
 }
+
+
+//curl --header "Content-Type: application/json" --request POST --data '{"name":"test_user2", "pasword":"pw2"}' localhost:3001/api/v1/auth/signin

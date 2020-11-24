@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
-
 import { User } from '../user'
-
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -14,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserMangService {
-    private url: string = 'http://127.0.0.1:8000/api/v1/users/';
+    private url: string = environment.api_url + 'api/v1/users/';
   
     constructor(private http: HttpClient) {}
 

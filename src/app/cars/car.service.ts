@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { of } from 'rxjs'
-
+import { environment } from '../../environments/environment'
 
 import { Car } from './car'
 import  { Service } from './service'
@@ -17,9 +17,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CarService {
-    private url: string = 'http://127.0.0.1:8000/api/v1/cars/';
-    private cartypeUrl: string = 'http://127.0.0.1:8000/api/v1/cartype/';
-    private serviceUrl: string = 'http://127.0.0.1:8000/api/v1/service/'
+    private url: string = environment.api_url + 'api/v1/cars/';
+    private cartypeUrl: string = environment.api_url + 'api/v1/cartype/';
+    private serviceUrl: string = environment.api_url + 'api/v1/service/'
     constructor(private http: HttpClient) {}
 
 
